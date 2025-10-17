@@ -2,11 +2,11 @@ const { books } = require("../database/connect");
 
 exports.fetchBooks = async (req,res)=>{
     
-   const data = await books.findAll();  //select * from book; //await rakhna ko lagi async compulsory chainxa //findAll() le chai jaile data lai array ko form ma display garai dinxa
+   const datas = await books.findAll();  //select * from book; //await rakhna ko lagi async compulsory chainxa //findAll() le chai jaile data lai array ko form ma display garai dinxa
 
     res.json({
         message:"books fetched successfully",
-        information : data
+        datas
     })
 }
 
@@ -18,7 +18,6 @@ exports.addBook = async (req, res)=>{
         bookPrice : bookPrice,
         bookAuthor : bookAuthor,
         bookGenre : bookGenre
-
     })
 
     res.json({

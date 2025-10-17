@@ -1,6 +1,13 @@
 const {Sequelize, DataTypes} = require ("sequelize");
-const sequelize =new Sequelize("postgresql://postgres.cthegjamdgwfnhotfwlb:rhn@sql25@aws-0-ap-south-1.pooler.supabase.com:6543/postgres");
+// const sequelize =new Sequelize("postgresql://postgres.cthegjamdgwfnhotfwlb:rhn@sql25@aws-0-ap-south-1.pooler.supabase.com:6543/postgres");
 //sq = sequelize (basically Sequelize vanney class lai instantiate gareko )
+
+
+const sequelize = new Sequelize("books", "root", "!rhn@sql25", {
+  host: "localhost",
+  dialect: "mysql",
+  port: 3306, // default MySQL port
+});
 
 sequelize.authenticate()
 .then(()=>{
@@ -19,7 +26,7 @@ db.products = require ("./models/product.model") (sequelize, DataTypes);
 
 //yesle supabase ma lagera tables haru rakhdinxa / migrate grdinxa
 sequelize.sync({alter:false}).then(()=>{
-    console.log("migrate vayo hai ta");
+    console.log("migrate vayo hai ta 🚀");
 })
 module.exports = db;
                                                      
